@@ -1,0 +1,12 @@
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f3f4f6; 
+}
+
+tbody tr:hover {
+  background-color: #e5e7eb; 
+  transition: background-color 0.2s ease-in-out;
+}
