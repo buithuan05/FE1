@@ -1,0 +1,13 @@
+<h3 class="text-xl font-semibold mb-4">Chi tiết sản phẩm</h3>
+
+<div *ngIf="product">
+  <p><strong>ID:</strong> {{ product.id }}</p>
+  <p><strong>Tên:</strong> {{ product.name }}</p>
+  <p><strong>Giá:</strong> {{ product.price | vnd }}</p>
+  <p>
+    <strong>Trạng thái:</strong>
+    <span [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
+      {{ product.inStock ? 'Còn hàng' : 'Hết hàng' }}
+    </span>
+  </p>
+</div>

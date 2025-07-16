@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { VndPipe } from './custom.pipe'; 
+import { VndPipe } from './custom.pipe';
+import { ProductDetail } from '../product-detail/product-detail'; // chỉnh đường dẫn nếu khác
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, VndPipe],
+  imports: [CommonModule, FormsModule, VndPipe, ProductDetail],
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'] 
+  styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
   products = [
@@ -18,6 +19,8 @@ export class ProductListComponent {
   ];
 
   filterText = "";
+  selectedProduct: any = null;
+  isPopupVisible = false;
 
   filterProducts() {
     return this.products.filter(product =>
@@ -26,5 +29,13 @@ export class ProductListComponent {
       product.id.toString().includes(this.filterText)
     );
   }
+
+  showDetails(product: any) {
+    this.selectedProduct = product;
+    this.isPopupVisible = true;
+  }
+
+  closePopup() {
+    this.isPopupVisible = false;
+  }
 }
-  
