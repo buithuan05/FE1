@@ -1,17 +1,13 @@
+
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HelloWorld } from './hello-world/hello-world';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ChildComponent } from './child/child';
-import { CategoryList } from './category-list/category-list';
-import { UserList } from './user-list/user-list';
-import { BrandList } from './brand-list/brand-list';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HelloWorld, ProductListComponent, ChildComponent, CategoryList, UserList, BrandList],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, FormsModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected title = 'child component data';
-}
+export class DefaultLayout {}
