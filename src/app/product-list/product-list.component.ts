@@ -13,9 +13,9 @@ import { VndPipe } from '../product-list/custom.pipe';
 })
 export class ProductListComponent {
   products = [
-    { id: 1, name: 'Laptop', price: 1200, inStock: true },
-    { id: 2, name: 'Phone', price: 800, inStock: false },
-    { id: 3, name: 'Tablet', price: 500, inStock: true },
+    { id: 1, name: 'Laptop', price: 12000000, inStock: true },
+    { id: 2, name: 'Phone', price: 8000000, inStock: false },
+    { id: 3, name: 'Tablet', price: 5000000, inStock: true },
   ];
 
   filterText = "";

@@ -8,14 +8,16 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterOutlet, RouterLink],
   template: `
     <div class="layout">
-      <nav class="menu">
-        <a routerLink="/home" routerLinkActive="active">Trang chủ</a>
-        <a routerLink="/products" routerLinkActive="active">Sản phẩm</a>
-        <a routerLink="/create-product" routerLinkActive="active">Thêm sản phẩm</a>
-        <a routerLink="/brands" routerLinkActive="active">Thương hiệu</a>
-        <a routerLink="/categories" routerLinkActive="active">Danh mục</a>
-        <a routerLink="/users" routerLinkActive="active">Người dùng</a>
-      </nav>
+      <aside class="sidebar">
+        <nav>
+          <a routerLink="/home" routerLinkActive="active">Trang chủ</a>
+          <a routerLink="/products" routerLinkActive="active">Sản phẩm</a>
+          <a routerLink="/create-product" routerLinkActive="active">Thêm sản phẩm</a>
+          <a routerLink="/brands" routerLinkActive="active">Thương hiệu</a>
+          <a routerLink="/categories" routerLinkActive="active">Danh mục</a>
+          <a routerLink="/users" routerLinkActive="active">Người dùng</a>
+        </nav>
+      </aside>
 
       <main class="content">
         <router-outlet></router-outlet>
@@ -24,25 +26,38 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     .layout {
-      font-family: Arial, sans-serif;
-    }
-    .menu {
-      background: #eee;
-      padding: 10px;
       display: flex;
-      gap: 20px;
+      height: 100vh;
     }
-    a {
-      text-decoration: none;
-      color: black;
-    }
-    a.active {
-      font-weight: bold;
-      color: blue;
-    }
-    .content {
+
+    .sidebar {
+      width: 220px;
+      background: #2c3e50;
       padding: 20px;
+      color: white;
+    }
+
+    .sidebar nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background: #34495e;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+      background-color: #f8f9fa;
     }
   `]
 })
 export class DefaultLayout {}
+
