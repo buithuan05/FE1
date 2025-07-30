@@ -1,0 +1,61 @@
+<div class="mb-3">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    placeholder="Tìm theo tên, giá hoặc ID"
+  />
+</div>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Tên sản phẩm</th>
+      <th>Ảnh</th>
+      <th>Giá</th>
+      <th>Kho</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filterProducts()">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          width="80"
+          height="60"
+          style="object-fit: cover; border-radius: 4px;"
+        />
+      </td>
+      <td>{{ product.price | vnd }}</td>
+      <td>
+        <span
+          [class.text-success]="product.inStock"
+          [class.text-danger]="!product.inStock"
+        >
+          {{ product.inStock ? 'Còn hàng' : 'Hết hàng' }}
+        </span>
+      </td>
+      <td>
+        <div class="d-flex gap-1 flex-wrap">
+          <a [routerLink]="['/product', product.id]" class="action-btn btn-detail">
+            Chi tiết
+          </a>
+          <a [routerLink]="['/product/update', product.id]" class="action-btn btn-edit">
+            Sửa
+          </a>
+          <button
+            class="action-btn btn-delete"
+            (click)="deleteProduct(product.id)"
+          >
+            Xóa
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

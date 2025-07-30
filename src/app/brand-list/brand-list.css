@@ -1,14 +1,22 @@
-tbody tr:nth-child(odd) {
-  background-color: #ffffff;
+
+tr:hover {
+  background-color: #f3f4f6;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f3f4f6; 
-}
 
-tbody tr:hover {
-  background-color: #e5e7eb; 
+tr {
   transition: background-color 0.2s ease-in-out;
+}
+
+
+img {
+  border-radius: 0.375rem; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  width: 200px;
+}
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
 }
 
 table {
@@ -27,3 +35,4 @@ input {
   margin-bottom: 16px;
   width: 100%;
 }
+

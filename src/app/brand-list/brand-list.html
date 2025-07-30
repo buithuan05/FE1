@@ -1,0 +1,46 @@
+<div class="max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold text-gray-800 mb-4">Brand List</h2>
+
+  <!-- Ô tìm kiếm -->
+  <div class="mb-6">
+    <input
+      [(ngModel)]="filterText"
+      placeholder="Tìm kiếm thương hiệu..."
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+
+  <!-- Bảng danh sách thương hiệu -->
+  <div class="overflow-x-auto rounded-md">
+    <table class="w-full text-sm text-left text-gray-600">
+      <thead class="text-xs uppercase bg-blue-50 text-blue-700">
+        <tr>
+          <th class="px-6 py-3">ID</th>
+          <th class="px-6 py-3">Tên thương hiệu</th>
+          <th class="px-6 py-3">Mô tả</th>
+          <th class="px-6 py-3">Hình ảnh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let brand of filteredBrands"
+          class="bg-white hover:bg-blue-50 transition-colors border-b border-gray-200"
+        >
+          <td class="px-6 py-4 font-medium">{{ brand.id }}</td>
+          <td class="px-6 py-4">{{ brand.name }}</td>
+          <td class="px-6 py-4">{{ brand.description }}</td>
+          <td class="px-6 py-4">
+            <img
+              [src]="brand.Image"
+              [alt]="brand.name"
+              class="w-12 h-12 rounded-full object-cover shadow-md"
+            />
+          </td>
+        </tr>
+        <tr *ngIf="filteredBrands.length === 0">
+          <td colspan="4" class="text-center py-4 text-gray-500">Không có thương hiệu nào phù hợp.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

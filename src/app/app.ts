@@ -1,14 +1,13 @@
+
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Sidebar } from './sidebar/sidebar';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Sidebar],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  protected title = 'angular-su25';
-  stkChaGuiTien = '100000 trieu';
-}
+export class DefaultLayout {}

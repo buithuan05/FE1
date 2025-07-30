@@ -1,52 +1,21 @@
 import { Routes } from '@angular/router';
-import { ProductList } from './product-list/product-list';
+import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetail } from './product-detail/product-detail';
+import { BrandList } from './brand-list/brand-list';
 import { CategoryList } from './category-list/category-list';
-import { ProductCreate } from './product-create/product-create';
-import { BrandCreate } from './brand-create/brand-create';
-import { CategoryCreate } from './category-create/category-create';
+import { UserList } from './user-list/user-list';
+import { HelloWorld } from './hello-world/hello-world';
+import { CreateProduct } from './create-product/create-product'; 
 import { ProductUpdate } from './product-update/product-update';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: ProductList,
-  },
-  {
-    path: 'products',
-    component: ProductList,
-  },
-  {
-    path: 'categories',
-    component: CategoryList,
-  },
-  //   {
-  //   path: 'brands',
-  //   component: BrandList,
-  // },
-  //   {
-  //   path: 'users',
-  //   component: UserList,
-  // },
-  {
-    path: 'product/:id/detail',
-    component: ProductDetail,
-    canActivate: [], // Add guards if needed
-  },
-  {
-    path: 'products/create',
-    component: ProductCreate,
-  },
-  {
-    path: 'products/update/:id',
-    component: ProductUpdate,
-  },
-  {
-    path: 'brands/create',
-    component: BrandCreate,
-  },
-  {
-    path: 'categories/create',
-    component: CategoryCreate,
-  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HelloWorld },
+  { path: 'products', component: ProductListComponent },
+  { path: 'product/:id', component: ProductDetail },
+  { path: 'brands', component: BrandList },
+  { path: 'categories', component: CategoryList },
+  { path: 'users', component: UserList },
+  { path: 'create-product', component: CreateProduct }, 
+  { path: 'product/update/:id', component: ProductUpdate },
 ];
